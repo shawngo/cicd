@@ -15,8 +15,7 @@ func TestGetAPIKey(t *testing.T) {
 		if err != nil {
 			t.Errorf("unexpected error: %v", err)
 		}
-		// if key != "my-secret-key" {
-		if key != "wrong-key" {
+		if key != "my-secret-key" {
 			t.Errorf("got %s, want my-secret-key", key)
 		}
 	})
