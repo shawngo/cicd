@@ -12,8 +12,9 @@ import (
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
 
-	"github.com/shawngo/cicd/internal/database"
+	"time"
 
+	"github.com/shawngo/cicd/internal/database"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
@@ -89,8 +90,9 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+		Addr:              ":" + port,
+		Handler:           router,
+		ReadHeaderTimeout: 10 * time.Second,
 	}
 
 	log.Printf("Serving on port: %s\n", port)
