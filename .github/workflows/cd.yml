@@ -36,5 +36,4 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t us-central1-docker.pkg.dev/notely-471207/notely-ar-repo/notely:${{ github.sha }} .
-          docker push us-central1-docker.pkg.dev/notely-471207/notely-ar-repo/notely:${{ github.sha }}
+          gcloud builds submit --tag us-central1-docker.pkg.dev/notely-471207/notely-ar-repo/notely:${{ github.sha }} .
